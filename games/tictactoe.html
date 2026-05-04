@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>○×ゲーム | ミニゲームコレクション</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .ttt-game {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .ttt-board {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      grid-template-rows: repeat(3, 80px);
+      gap: 4px;
+      background: #020617;
+      padding: 4px;
+      border-radius: 0.5rem;
+      border: 1px solid #1e293b;
+    }
+
+    .ttt-cell {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: #0b1120;
+      border-radius: 0.35rem;
+      border: 1px solid #1f2937;
+      user-select: none;
+    }
+
+    .ttt-cell.disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    .ttt-status {
+      font-size: 1rem;
+      min-height: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">○×ゲーム</h1>
+    <p class="site-desc">2人で遊べる三目並べ</p>
+  </header>
+
+  <main class="container">
+    <nav style="margin-bottom: 1rem;">
+      <a href="../index.html">&larr; ゲーム一覧に戻る</a>
+    </nav>
+
+    <section class="game-layout">
+      <header class="game-header">
+        <p class="game-info">
+          プレイヤー1が「○」、プレイヤー2が「×」です。
+          交互にマスを選び、縦・横・斜めのどれか一列を揃えた方の勝ちです。
+        </p>
+      </header>
+
+      <div class="game-main">
+        <div class="ttt-game">
+          <div class="ttt-status" id="ttt-status"></div>
+
+          <div class="ttt-board" id="ttt-board">
+            <div class="ttt-cell" data-index="0"></div>
+            <div class="ttt-cell" data-index="1"></div>
+            <div class="ttt-cell" data-index="2"></div>
+            <div class="ttt-cell" data-index="3"></div>
+            <div class="ttt-cell" data-index="4"></div>
+            <div class="ttt-cell" data-index="5"></div>
+            <div class="ttt-cell" data-index="6"></div>
+            <div class="ttt-cell" data-index="7"></div>
+            <div class="ttt-cell" data-index="8"></div>
+          </div>
+
+          <div class="game-controls" style="justify-content: center;">
+            <button id="ttt-restart" class="btn-secondary">リセット</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2026 Mini Game Site</small>
+  </footer>
+
+  <script src="../assets/js/game-tictactoe.js"></script>
+</body>
+</html>
